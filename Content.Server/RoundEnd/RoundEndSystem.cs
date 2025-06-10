@@ -302,6 +302,9 @@ namespace Content.Server.RoundEnd
                     ("time", time),
                     ("units", Loc.GetString(unitsLocString))));
             Timer.Spawn(countdownTime.Value, AfterEndRoundRestart, _countdownTokenSource.Token);
+            _chatManager.DispatchServerAnnouncement(
+                Loc.GetString("round-end-system-rules-reminder-announcement")
+            );
         }
 
         /// <summary>
